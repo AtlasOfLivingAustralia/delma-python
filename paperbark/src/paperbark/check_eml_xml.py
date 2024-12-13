@@ -1,20 +1,17 @@
 import xmlschema
 
-def check_eml_xml(eml_xml=None):
+def check_eml_xml(eml_xml='eml.xml'):
     """
-    Checks whether or not your ``eml.xml`` file is formatted correctly for GBIF.
+    Checks whether or not your eml xml file is formatted correctly for GBIF.
 
     Parameters
     ----------
-        None
+        ``eml_xml``: ``str``
+            Name of the eml xml file you want to validate.  Default value is ``'eml.xml'``.
 
     Returns
     -------
         Raises a ``ValueError`` if something is wrong, or returns True if it passes.
-
-    Examples
-    --------
-    Amanda to add here later.
     """
 
     # first, check 

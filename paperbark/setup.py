@@ -33,8 +33,8 @@ setup(
         'pytest',
         'requests',
         'shutils',
-        'tabulate',
-        'metapype'
+        'metapype',
+        'xmltodict'
     ],
 
     include_package_data = True,

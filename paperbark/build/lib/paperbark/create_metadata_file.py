@@ -1,6 +1,7 @@
 import os
 
-def create_metadata_file(self):
+def create_md(metadata_md='./metadata.md',
+              xml_url=None):
         """
         Creates a markdown file containing the metadata information needed for the DwCA.  The user can edit this 
         markdown, and use it to generate the metadata files.
@@ -17,7 +18,9 @@ def create_metadata_file(self):
             ``None``
         """
         
-        if not os.path.exists(self.metadata_md):
-            os.system("cp {} {}".format(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'metadata_template.md'),os.path.join(self.metadata_md)))
+        if not os.path.exists(metadata_md) and xml_url is None:
+            os.system("cp {} {}".format(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'metadata_template.md'),os.path.join(metadata_md)))
+        elif xml_url is not None:
+             print("Amanda write this")
         else:
             pass

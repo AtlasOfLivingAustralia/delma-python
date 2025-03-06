@@ -1,4 +1,3 @@
-import pandas as pd
 import xml.etree.ElementTree as ET
 
 def build_subelement(element=None,

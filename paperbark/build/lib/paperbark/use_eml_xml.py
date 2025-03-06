@@ -1,18 +1,26 @@
+import subprocess
 import metapype
 import metapype.eml.export
 import metapype.eml.names as names
-import metapype.eml.validate as validate
 from metapype.model.node import Node
+from .common_dictionaries import TITLE_LEVELS
 
-def make_eml_xml(self):
+def use_eml_xml(metadata_md='metadata.md',
+                working_dir='./',
+                eml_xml='eml.xml'):
         """
-        Makes the ``eml.xml`` file from the metadata markdown file into your current working directory.  
+        Writes the ``eml.xml`` file from the metadata markdown file into your current working directory.  
         The ``eml.xml`` file is the metadata file containing things like authorship, licence, institution, 
         etc.
 
         Parameters
         ----------
-            ``None``
+            ``metadata_md``: ``str``
+                Name of the markdown file that you want to convert to EML.  Default value is ``'metadata.md'``.
+            ``working_dir``: ``str``
+                Name of your working directory.  Default value is ``'./'``.
+            ``eml_xml``: ``str``
+                Name of your eml xml file.  Default value is ``'eml.xml'``.
                     
         Returns
         -------
@@ -36,11 +44,10 @@ def make_eml_xml(self):
                       6 : None}
 
         # check for last line
-        import subprocess
-        last_line = subprocess.check_output(['tail', '-1', self.metadata_md],text=True).strip()
+        last_line = subprocess.check_output(['tail', '-1', metadata_md],text=True).strip()
 
         # open the metadata file
-        metadata_file = open(self.metadata_md, "r")
+        metadata_file = open(metadata_md, "r")
 
         # initialise list so we have everything in order
         title_list = []
@@ -105,5 +112,5 @@ def make_eml_xml(self):
             
         # write xml
         xml_str = metapype.eml.export.to_xml(metadata)
-        with open("{}/{}".format(self.working_dir,self.eml_xml), 'w') as f:
+        with open("{}/{}".format(working_dir,eml_xml), 'w') as f:
             f.write(xml_str)

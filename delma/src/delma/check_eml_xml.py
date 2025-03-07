@@ -1,6 +1,7 @@
 import xmlschema
 
-def check_eml_xml(eml_xml='eml.xml'):
+def check_eml_xml(eml_xml='eml.xml',
+                  working_dir='./'):
     """
     Checks whether or not your eml xml file is formatted correctly for GBIF.
 
@@ -8,10 +9,12 @@ def check_eml_xml(eml_xml='eml.xml'):
     ----------
         ``eml_xml``: ``str``
             Name of the eml xml file you want to validate.  Default value is ``'eml.xml'``.
+        ``working_dir``: ``str``
+            Name of the directory to write the ``eml.xml``.  Default value is ``'./'``.
 
     Returns
     -------
-        Raises a ``ValueError`` if something is wrong, or returns True if it passes.
+        Raises a ``ValueError`` if something is wrong, or returns None if it passes.
     """
 
     # first, check 
@@ -19,7 +22,7 @@ def check_eml_xml(eml_xml='eml.xml'):
         raise ValueError("Please provide an eml file / variable")
 
     try:
-        check = xmlschema.validate("{}".format(eml_xml), 'http://rs.gbif.org/schema/eml-gbif-profile/1.3/eml-gbif-profile.xsd')
+        check = xmlschema.validate("{}/{}".format(working_dir,eml_xml), 'http://rs.gbif.org/schema/eml-gbif-profile/1.3/eml-gbif-profile.xsd')
         return check
     except xmlschema.validators.exceptions.XMLSchemaChildrenValidationError as e:
         print("children error")

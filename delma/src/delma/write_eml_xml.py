@@ -7,8 +7,8 @@ from metapype.model.node import Node
 from .common_dictionaries import TITLE_LEVELS
 
 def write_eml_xml(metadata_md='metadata.md',
-                working_dir='./',
-                eml_xml='eml.xml'):
+                  working_dir='./',
+                  eml_xml='eml.xml'):
         """
         Writes the ``eml.xml`` file from the metadata markdown file into your current working directory.  
         The ``eml.xml`` file is the metadata file containing things like authorship, licence, institution, 

@@ -7,14 +7,14 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
 import sys
-import paperbark
+import delma
 
-project = 'paperbark'
+project = 'delma'
 copyright = 'Atlas of Living Australia'
 author = 'Atlas of Living Australia'
 
-# add path for paperbark
-sys.path.insert(0,"../../paperbark/src/paperbark/")
+# add path for delma
+sys.path.insert(0,"../../delma/src/delma/")
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -30,7 +30,7 @@ autosectionlabel_prefix_document = True
 napoleon_use_param = True
 myst_enable_extensions = ["colon_fence"]
 
-version = str(paperbark.__version__)
+version = str(delma.__version__)
 release = version
 source_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -44,7 +44,7 @@ html_theme = 'pydata_sphinx_theme'
 
 html_theme_options = {
         "navbar_align": "content",
-        "github_url": "https://github.com/AtlasOfLivingAustralia/paperbark-python",
+        "github_url": "https://github.com/AtlasOfLivingAustralia/delma-python",
         "secondary_sidebar_items": ["page-toc"],
         "logo": {
                 "image_light": "_static/logo/logo.png", # didn't have dir before

@@ -1,8 +1,0 @@
-pandas
-beautifulsoup4
-configparser
-pytest
-requests
-shutils
-metapype
-xmltodict

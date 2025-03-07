@@ -1,23 +1,23 @@
 :notoc:
 
-|paperbark-logo|   paperbark
+|delma-logo|   delma
 =====================================
 
-.. |paperbark-logo| image:: _static/logo/logo.png   
+.. |delma-logo| image:: _static/logo/logo.png   
     :width: 150px
-    :alt: paperbark hexagon logo
+    :alt: delma hexagon logo
 
 **Date**: |today|  **Version**: |version|  
 
-The ``paperbark`` package offers a streamlined workflow for users to prepare 
+The ``delma`` package offers a streamlined workflow for users to prepare 
 their metadata associated with collected biodiversity data for submission to 
 the living atlases. This package helps users to format their metadata according 
 to Darwin Core standards prior to submission, while still maintaining control over their data.
 
-``paperbark`` was built and is maintained by the 
+``delma`` was built and is maintained by the 
 `Science & Decision Support Team <https://labs.ala.org.au/>`_ 
 at the `Atlas of Living Australia (ALA) <https://www.ala.org.au/>`_.  
-``paperbark`` is a collective name for paperbark trees (*Melaleuca quinquenervia*), 
+``delma`` is a collective name for delma trees (*Melaleuca quinquenervia*), 
 a widely-distributed endemic Australian species that is part the myrtle family, 
 *Myrtaceae*.  The logo was designed by `Ian Brennan <http://www.iangbrennan.org/>`_.
 
@@ -28,8 +28,8 @@ If you have any comments, questions or suggestions, please `contact us <mailto:s
    :hidden: 
 
    Getting Started <getting_started/index>
-   Paperbark User Guide <paperbark_user_guide/index>
-   API Docs <apidoc/paperbark>
+   delma User Guide <delma_user_guide/index>
+   API Docs <apidoc/delma>
    Authors <authors/index>
 
 .. grid:: 1 2 2 2
@@ -45,22 +45,22 @@ If you have any comments, questions or suggestions, please `contact us <mailto:s
                 
         **Getting started**
 
-        New to ``paperbark``?
+        New to ``delma``?
 
     .. grid-item-card::
-        :link: paperbark_user_guide/index.html
+        :link: delma_user_guide/index.html
         :class-card: sd-text-black
         :text-align: center
 
         .. raw:: html
             :file: _static/icons/configuration.svg
 
-        **Paperbark User Guide**
+        **delma User Guide**
 
-        Want to know more about how to use ``paperbark``?
+        Want to know more about how to use ``delma``?
 
     .. grid-item-card::
-        :link: apidoc/paperbark.html
+        :link: apidoc/delma.html
         :class-card: sd-text-black
         :text-align: center
 
@@ -69,7 +69,7 @@ If you have any comments, questions or suggestions, please `contact us <mailto:s
 
         **API Docs**
 
-        Want to browse ``paperbark``' API docs?
+        Want to browse ``delma``' API docs?
     
     .. grid-item-card:: 
         :class-card: sd-text-black
@@ -81,4 +81,4 @@ If you have any comments, questions or suggestions, please `contact us <mailto:s
 
         **Authors**
 
-        Who wrote ``paperbark``? Want to cite the package?
+        Who wrote ``delma``? Want to cite the package?

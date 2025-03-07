@@ -1,0 +1,17 @@
+pyproject.toml
+setup.cfg
+setup.py
+src/delma/__init__.py
+src/delma/check_eml_xml.py
+src/delma/common_dictionaries.py
+src/delma/create_md.py
+src/delma/display_as_dataframe.py
+src/delma/metadata_template.md
+src/delma/recursive_md_function.py
+src/delma/version.py
+src/delma/write_eml_xml.py
+src/delma_python.egg-info/PKG-INFO
+src/delma_python.egg-info/SOURCES.txt
+src/delma_python.egg-info/dependency_links.txt
+src/delma_python.egg-info/requires.txt
+src/delma_python.egg-info/top_level.txt

@@ -27,7 +27,7 @@ def write_eml_xml(metadata_md='metadata.md',
         -------
             ``None``
         """
-       
+
         # initialise the eml.xml file
         metadata = Node(names.EML)
         metadata.add_attribute('packageId', 'edi.23.1') # doi:10.xxxx/eml.1.1
@@ -73,6 +73,8 @@ def write_eml_xml(metadata_md='metadata.md',
             if not comment and line.strip()[-3:] != '-->':
                 if line != "\n":
                     if "#" == line[0]:
+                        title = ""
+                        description = ""
                         title_parts = line.strip().split(' ')
                         title = "".join(title_parts[1:]).upper()
                         titles[title] = TITLE_LEVELS[title_parts[0]]
@@ -87,13 +89,22 @@ def write_eml_xml(metadata_md='metadata.md',
                         if line.strip() == last_line:
                             elements[title] = description
                 elif line == "\n" and title != "" and description != "":
+
+                    # try adding new lines
+                    if type(description) is list:
+                        description += ["\n"]
+                    else:
+                        description += "\n"
+
                     if title not in elements:
                         elements[title] = description
                     else:
+                        # how to deal with duplicates and multiple lines?
                         elements["{}{}".format(title,duplicate)] = description
                         duplicate += 1
-                    title = ""
-                    description = ""
+                    # temporarily removed this
+                    # title = ""
+                    # description = "" # try this
                 elif line == "\n" and title != "":
                     if title not in elements:
                         if title == "PUBDATE":
@@ -106,26 +117,55 @@ def write_eml_xml(metadata_md='metadata.md',
                     title = ""
                 else:
                     pass
-
+               
         # close markdown file
         metadata_file.close()
-
+        
         # loop over all levels
         for t in title_list:
-            
+
             # check for duplicates
             if t[-1].isdigit():
                 t = t[:-1]
             elif t[-2:].isdigit():
                 t = t[:-2]
 
-            # get attribute and set nodes
+            # get attribute
+            # print(t)
             attr = getattr(names,t)
-            current_node = Node(attr,parent=level_dict[titles[t] - 1])
+
+            # set nodes
+            current_node = Node(attr,parent=level_dict[titles[t] - 1])               
             if type(elements[t]) is list:
-                current_node.content = "".join(elements[t])
-            elif type(elements[t]) is str:
+                if elements[t][-1] == "\n":
+                    elements[t] = elements[t][:-1]
+                if t == 'USERID':
+                    current_node.add_attribute('directory',"https://orcid.org")
+                    if elements[t] is not None:
+                        current_node.content = " ".join(elements[t])
+                    else:
+                        current_node.content = ""
+                else:
+                    if "\n" in elements[t] and t in ["ABSTRACT","INTRODUCTION"]:
+                        indices = [n for n,x in enumerate(elements[t]) if x == "\n"]
+                        start = 0
+                        for index in indices:
+                            first_para = elements[t][start:index]
+                            para_attr = getattr(names,"PARA")
+                            para_node = Node(para_attr,parent=current_node)
+                            para_node.content = " ".join(first_para)
+                            start = index + 1
+                            current_node.add_child(para_node)
+                    else:
+                        current_node.content = " ".join(elements[t])
+            elif type(elements[t]) is str and t not in ["DATASET","CREATOR","INDIVIDUALNAME","ADDRESS","USERID","CONTACT","LICENSED","KEYWORDSET"]:
                 current_node.content = elements[t]
+            elif type(elements[t]) is str and t == "USERID":
+                current_node.add_attribute('directory',"https://orcid.org")
+                if elements[t] is not None:
+                    current_node.content = " ".join(elements[t])
+                else:
+                    current_node.content = ""
             level_dict[titles[t]] = current_node
             level_dict[titles[t] - 1].add_child(current_node)
 

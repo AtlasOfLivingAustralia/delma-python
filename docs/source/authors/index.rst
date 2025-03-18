@@ -15,4 +15,4 @@ Authors
 Citation
 --------
 
-Buyan A, Kellie D, Westgate M (2023). paperbark: Atlas of Living Australia (ALA) Data and Resources in Python. Python package version |version|. https://github.com/AtlasOfLivingAustralia/paperbark-python.
+Buyan A, Kellie D, Westgate M (2023). delma: Atlas of Living Australia (ALA) Data and Resources in Python. Python package version |version|. https://github.com/AtlasOfLivingAustralia/delma-python.

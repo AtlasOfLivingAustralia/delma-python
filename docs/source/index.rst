@@ -9,17 +9,17 @@
 
 **Date**: |today|  **Version**: |version|  
 
-The ``delma`` package offers a streamlined workflow for users to prepare 
-their metadata associated with collected biodiversity data for submission to 
-the living atlases. This package helps users to format their metadata according 
-to Darwin Core standards prior to submission, while still maintaining control over their data.
+``delma`` is a package for converting metadata statements written in markdown, 
+RMarkdown or Quarto markdown to Ecological Metadata Language (EML). It is named 
+for a genus of legless lizards that are endemic to Australia, whose name happens 
+to contain the letters 'e', 'm' and 'l'.
 
-``delma`` was built and is maintained by the 
+The logo depicts a striped legless lizard (*Delma impar*) in the style of the 
+classic mobile game 'snake', a play on the observation that Delma are often 
+mistaken for snakes. ``delma`` was built and is maintained by the 
 `Science & Decision Support Team <https://labs.ala.org.au/>`_ 
 at the `Atlas of Living Australia (ALA) <https://www.ala.org.au/>`_.  
-``delma`` is a collective name for delma trees (*Melaleuca quinquenervia*), 
-a widely-distributed endemic Australian species that is part the myrtle family, 
-*Myrtaceae*.  The logo was designed by `Ian Brennan <http://www.iangbrennan.org/>`_.
+It was drawn by Martin Westgate.
 
 If you have any comments, questions or suggestions, please `contact us <mailto:support@ala.org.au>`_.
 

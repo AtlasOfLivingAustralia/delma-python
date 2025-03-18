@@ -2,6 +2,7 @@ import os
 import io
 import requests
 import xmltodict
+import pandas as pd
 from .common_dictionaries import TITLE_LEVELS_NUM
 from .recursive_md_function import check_dict,add_entry
 
@@ -26,8 +27,14 @@ def create_md(metadata_md='metadata.md',
             ``None``
         """
         
-        if not os.path.exists(metadata_md) and xml_url is None:
+        # first, check if the user wants the default markdown file
+        if os.path.exists('{}/{}'.format(working_dir,metadata_md)):
+            print("There is already a metadata file.")
+
+        elif not os.path.exists('{}/{}'.format(working_dir,metadata_md)) and xml_url is None:
             os.system("cp {} {}".format(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'metadata_template.md'),os.path.join(working_dir,metadata_md)))
+
+        # then, check if the 
         elif xml_url is not None:
             metadata_dict = {
                 'level': [],
@@ -40,8 +47,11 @@ def create_md(metadata_md='metadata.md',
                 metadata_dict = add_entry(metadata_dict=metadata_dict,level=TITLE_LEVELS_NUM[1],label=header,text='')
                 for key in xml_dict[header].keys():
                     if type(xml_dict[header][key]) is dict:
-                        metadata_dict=add_entry(metadata_dict=metadata_dict,level=TITLE_LEVELS_NUM[2],label=key,text='')
-                        metadata_dict=check_dict(xml_dict[header][key],metadata_dict=metadata_dict,level=2)
+                        if '@xmlns:lang' in xml_dict[header][key].keys():
+                            metadata_dict = add_entry(metadata_dict=metadata_dict,level=TITLE_LEVELS_NUM[2],label=key,text=xml_dict[header][key]['#text']+'\n')
+                        else:
+                            metadata_dict=add_entry(metadata_dict=metadata_dict,level=TITLE_LEVELS_NUM[2],label=key,text='')
+                            metadata_dict=check_dict(xml_dict[header][key],metadata_dict=metadata_dict,level=2)
                     elif type(xml_dict[header][key]) is list:
                         if any(type(x) is dict for x in xml_dict[header][key]):
                             for entry in xml_dict[header][key]:
@@ -60,7 +70,6 @@ def create_md(metadata_md='metadata.md',
                         metadata_dict=add_entry(metadata_dict=metadata_dict,level=TITLE_LEVELS_NUM[2],label=key,text='')
                     else:
                          raise ValueError("other type: {}".format(type(xml_dict[header][key])))
-            # print(metadata_dict)
             max_num = 0
             for entry in metadata_dict:
                  if len(metadata_dict[entry]) > max_num:
@@ -71,14 +80,9 @@ def create_md(metadata_md='metadata.md',
                       difference = max_num - len(metadata_dict[entry])
                       metadata_dict[entry] = metadata_dict[entry] + ['' for x in range(difference)]
             
-            import pandas as pd
-            # print(pd.DataFrame(metadata_dict))
-            # return pd.DataFrame(metadata_dict)
             metadata_file = open('{}/{}'.format(working_dir,metadata_md),"w")
             for i,row in pd.DataFrame(metadata_dict).iterrows():
                  metadata_file.write('{} {}\n{}\n'.format(row['level'],row['label'],row['text']))
-            # metadata_file.write('{} {}\n\n'.format(TITLE_LEVELS_NUM[1],header))
-            # metadata_file.write('{} {}\n{}\n'.format(TITLE_LEVELS_NUM[level],key,description))
             metadata_file.close()
         else:
             pass

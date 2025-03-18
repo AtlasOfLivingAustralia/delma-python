@@ -1,7 +1,7 @@
 API Docs
 ========
 
-.. automodule:: paperbark
+.. automodule:: delma
    :members:
    :undoc-members:
    :show-inheritance:

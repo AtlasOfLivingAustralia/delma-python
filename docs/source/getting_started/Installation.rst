@@ -8,17 +8,17 @@ Installation can be performed a number of ways: the Python Package Index (PyPI) 
 Python Package Index
 --------------------
 
-To install the latest version of ``paperbark`` using pip do:
+To install the latest version of ``delma`` using pip do:
 
 .. prompt:: 
 
-    pip install paperbark-python
+    pip install delma-python
 
 To upgrade to the latest release:
 
 .. prompt:: 
 
-    pip install --upgrade paperbark-python
+    pip install --upgrade delma-python
 
 Source
 ------
@@ -28,9 +28,9 @@ Ensure that you have ``git`` installed, and then clone the repo:
 
 .. prompt:: 
 
-    git clone https://github.com/AtlasOfLivingAustralia/paperbark_python.git
+    git clone https://github.com/AtlasOfLivingAustralia/delma_python.git
 
-Then go into the ``paperbark-python/paperbark`` directory and run the following command:
+Then go into the ``delma-python/delma`` directory and run the following command:
 
 .. prompt:: 
 

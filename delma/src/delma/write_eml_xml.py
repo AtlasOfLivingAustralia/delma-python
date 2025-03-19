@@ -46,10 +46,10 @@ def write_eml_xml(metadata_md='metadata.md',
                       6 : None}
 
         # check for last line
-        last_line = subprocess.check_output(['tail', '-1', metadata_md],text=True).strip()
+        last_line = subprocess.check_output(['tail', '-1', '{}/{}'.format(working_dir,metadata_md)],text=True).strip()
 
         # open the metadata file
-        metadata_file = open(metadata_md, "r")
+        metadata_file = open('{}/{}'.format(working_dir,metadata_md), "r")
 
         # initialise list so we have everything in order
         title_list = []
@@ -131,8 +131,10 @@ def write_eml_xml(metadata_md='metadata.md',
                 t = t[:-2]
 
             # get attribute
-            # print(t)
-            attr = getattr(names,t)
+            if t in ['ULINK','CITETITLE','GBIF','DATESTAMP','HIERARCHYLEVEL','RIGHTS']:
+                attr = t.lower()
+            else:
+                attr = getattr(names,t)
 
             # set nodes
             current_node = Node(attr,parent=level_dict[titles[t] - 1])               

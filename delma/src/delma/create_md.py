@@ -47,8 +47,8 @@ def create_md(metadata_md='metadata.md',
                 metadata_dict = add_entry(metadata_dict=metadata_dict,level=TITLE_LEVELS_NUM[1],label=header,text='')
                 for key in xml_dict[header].keys():
                     if type(xml_dict[header][key]) is dict:
-                        if '@xmlns:lang' in xml_dict[header][key].keys():
-                            metadata_dict = add_entry(metadata_dict=metadata_dict,level=TITLE_LEVELS_NUM[2],label=key,text=xml_dict[header][key]['#text']+'\n')
+                        if any(x in xml_dict[header][key].keys() for x in ['@xmlns:lang']):
+                             pass
                         else:
                             metadata_dict=add_entry(metadata_dict=metadata_dict,level=TITLE_LEVELS_NUM[2],label=key,text='')
                             metadata_dict=check_dict(xml_dict[header][key],metadata_dict=metadata_dict,level=2)

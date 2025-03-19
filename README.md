@@ -8,13 +8,6 @@
 
 ## Overview
 
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# delma <img src="man/figures/logo.png" align="right" style="margin: 0px 10px 0px 10px;" alt="" width="120"/><br>
-
-## Overview
-
 `delma` is a package for converting metadata statements written in
 markdown, RMarkdown or Quarto markdown to [Ecological Metadata
 Language](https://eml.ecoinformatics.org) (EML). It is named for a genus

@@ -8,7 +8,8 @@ from .recursive_md_function import check_dict,add_entry
 
 def create_md(metadata_md='metadata.md',
               working_dir='./',
-              xml_url=None):
+              xml_url=None,
+              print_notices=True):
         """
         Creates a markdown file containing the metadata information needed for the DwCA.  The user can edit this 
         markdown, and use it to generate the metadata files.
@@ -29,7 +30,8 @@ def create_md(metadata_md='metadata.md',
         
         # first, check if the user wants the default markdown file
         if os.path.exists('{}/{}'.format(working_dir,metadata_md)):
-            print("There is already a metadata file.")
+            if print_notices:
+                print("There is already a metadata file.")
 
         elif not os.path.exists('{}/{}'.format(working_dir,metadata_md)) and xml_url is None:
             os.system("cp {} {}".format(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'metadata_template.md'),os.path.join(working_dir,metadata_md)))

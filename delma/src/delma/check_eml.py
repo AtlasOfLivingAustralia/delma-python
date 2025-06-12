@@ -1,6 +1,6 @@
 import xmlschema
 
-def check_eml_xml(eml_xml='eml.xml',
+def check_eml(eml_xml='eml.xml',
                   working_dir='./'):
     """
     Checks whether or not your eml xml file is formatted correctly for GBIF.

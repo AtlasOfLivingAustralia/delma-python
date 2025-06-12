@@ -110,136 +110,136 @@ def test_display_as_dataframe_xml_rename_change_working_dir():
     assert type(df) is pd.core.frame.DataFrame
 
 # ------------------------------------
-# write_eml_xml.py
+# write_eml.py
 # ------------------------------------
-def test_write_eml_xml_default():
+def test_write_eml_default():
     if os.path.exists('metadata.md'):
         os.remove('metadata.md')
     delma.create_md()
-    delma.write_eml_xml()
+    delma.write_eml()
     assert os.path.isfile('eml.xml')
 
-def test_write_eml_xml_markdown():
+def test_write_eml_markdown():
     if os.path.exists('eml.xml'):
         os.remove('eml.xml')
     if os.path.exists('testing.md'):
         os.remove('testing.md')
     delma.create_md(metadata_md='testing.md')
-    delma.write_eml_xml(metadata_md='testing.md')
+    delma.write_eml(metadata_md='testing.md')
     assert os.path.isfile('eml.xml')
 
-def test_write_eml_xml_directory():
+def test_write_eml_directory():
     if os.path.exists('testing/metadata.md'):
         os.remove('testing/metadata.md')
     if os.path.exists('testing/eml.xml'):
         os.remove('testing/eml.xml')
     delma.create_md(working_dir='testing')
-    delma.write_eml_xml(working_dir='testing')
+    delma.write_eml(working_dir='testing')
     assert os.path.isfile('testing/eml.xml')
 
-def test_write_eml_xml_markdown_directory():
+def test_write_eml_markdown_directory():
     if os.path.exists('testing/testing.md'):
         os.remove('testing/testing.md')
     if os.path.exists('testing/eml.xml'):
         os.remove('testing/eml.xml')
     delma.create_md(working_dir='testing',metadata_md='testing.md')
-    delma.write_eml_xml(working_dir='testing',metadata_md='testing.md')
+    delma.write_eml(working_dir='testing',metadata_md='testing.md')
     assert os.path.isfile('testing/eml.xml')
 
-def test_write_eml_xml_directory_eml_xml():
+def test_write_eml_directory_eml_xml():
     if os.path.exists('testing/metadata.md'):
         os.remove('testing/metadata.md')
     if os.path.exists('testing/testing.xml'):
         os.remove('testing/testing.xml')
     delma.create_md(xml_url="https://collections.ala.org.au/ws/eml/dr368",working_dir='testing')
-    delma.write_eml_xml(working_dir='testing',eml_xml='testing.xml')
+    delma.write_eml(working_dir='testing',eml_xml='testing.xml')
     assert os.path.isfile('testing/testing.xml')
 
-def test_write_eml_xml_markdown_eml_xml():
+def test_write_eml_markdown_eml_xml():
     if os.path.exists('testing.md'):
         os.remove('testing.md')
     if os.path.exists('testing.xml'):
         os.remove('testing.xml')
     delma.create_md(xml_url="https://collections.ala.org.au/ws/eml/dr368",metadata_md='testing.md')
-    delma.write_eml_xml(metadata_md='testing.md',eml_xml='testing.xml')
+    delma.write_eml(metadata_md='testing.md',eml_xml='testing.xml')
     assert os.path.isfile('testing.xml')
 
-def test_write_eml_xml_markdown_directory_xml_rename():
+def test_write_eml_markdown_directory_xml_rename():
     if os.path.exists('testing/testing.md'):
         os.remove('testing/testing.md')
     if os.path.exists('testing/testing.xml'):
         os.remove('testing/testing.xml')
     delma.create_md(xml_url="https://collections.ala.org.au/ws/eml/dr368",working_dir='testing',metadata_md='testing.md')
-    delma.write_eml_xml(working_dir='testing',metadata_md='testing.md',eml_xml='testing.xml')
+    delma.write_eml(working_dir='testing',metadata_md='testing.md',eml_xml='testing.xml')
     assert os.path.isfile('testing/testing.xml')
 
 # ------------------------------------
-# check_eml_xml.py
+# check_eml.py
 # ------------------------------------
-def test_check_eml_xml_default():
+def test_check_eml_default():
     if os.path.exists('metadata.md'):
         os.remove('metadata.md')
     delma.create_md()
-    delma.write_eml_xml()
-    check = delma.check_eml_xml()
+    delma.write_eml()
+    check = delma.check_eml()
     assert check is None
 
-def test_check_eml_xml_markdown():
+def test_check_eml_markdown():
     if os.path.exists('eml.xml'):
         os.remove('eml.xml')
     if os.path.exists('testing.md'):
         os.remove('testing.md')
     delma.create_md(metadata_md='testing.md')
-    delma.write_eml_xml(metadata_md='testing.md')
-    check = delma.check_eml_xml()
+    delma.write_eml(metadata_md='testing.md')
+    check = delma.check_eml()
     assert check is None
 
-def test_check_eml_xml_directory():
+def test_check_eml_directory():
     if os.path.exists('testing/metadata.md'):
         os.remove('testing/metadata.md')
     if os.path.exists('testing/eml.xml'):
         os.remove('testing/eml.xml')
     delma.create_md(working_dir='testing')
-    delma.write_eml_xml(working_dir='testing')
-    check = delma.check_eml_xml(working_dir='testing')
+    delma.write_eml(working_dir='testing')
+    check = delma.check_eml(working_dir='testing')
     assert check is None
 
-def test_check_eml_xml_markdown_directory():
+def test_check_eml_markdown_directory():
     if os.path.exists('testing/testing.md'):
         os.remove('testing/testing.md')
     if os.path.exists('testing/eml.xml'):
         os.remove('testing/eml.xml')
     delma.create_md(working_dir='testing',metadata_md='testing.md')
-    delma.write_eml_xml(working_dir='testing',metadata_md='testing.md')
-    check = delma.check_eml_xml(working_dir='testing')
+    delma.write_eml(working_dir='testing',metadata_md='testing.md')
+    check = delma.check_eml(working_dir='testing')
     assert check is None
 
-def test_check_eml_xml_directory_eml_xml():
+def test_check_eml_directory_eml_xml():
     if os.path.exists('testing/metadata.md'):
         os.remove('testing/metadata.md')
     if os.path.exists('testing/testing.xml'):
         os.remove('testing/testing.xml')
     delma.create_md(xml_url="https://collections.ala.org.au/ws/eml/dr368",working_dir='testing')
-    delma.write_eml_xml(working_dir='testing',eml_xml='testing.xml')
-    check = delma.check_eml_xml(working_dir='testing',eml_xml='testing.xml')
+    delma.write_eml(working_dir='testing',eml_xml='testing.xml')
+    check = delma.check_eml(working_dir='testing',eml_xml='testing.xml')
     assert check is None
 
-def test_check_eml_xml_markdown_eml_xml():
+def test_check_eml_markdown_eml_xml():
     if os.path.exists('testing.md'):
         os.remove('testing.md')
     if os.path.exists('testing.xml'):
         os.remove('testing.xml')
     delma.create_md(xml_url="https://collections.ala.org.au/ws/eml/dr368",metadata_md='testing.md')
-    delma.write_eml_xml(metadata_md='testing.md',eml_xml='testing.xml')
-    check = delma.check_eml_xml(eml_xml='testing.xml')
+    delma.write_eml(metadata_md='testing.md',eml_xml='testing.xml')
+    check = delma.check_eml(eml_xml='testing.xml')
     assert check is None
 
-def test_check_eml_xml_markdown_directory_xml_rename():
+def test_check_eml_markdown_directory_xml_rename():
     if os.path.exists('testing/testing.md'):
         os.remove('testing/testing.md')
     if os.path.exists('testing/testing.xml'):
         os.remove('testing/testing.xml')
     delma.create_md(xml_url="https://collections.ala.org.au/ws/eml/dr368",working_dir='testing',metadata_md='testing.md')
-    delma.write_eml_xml(working_dir='testing',metadata_md='testing.md',eml_xml='testing.xml')
-    check = delma.check_eml_xml(working_dir='testing',eml_xml='testing.xml')
+    delma.write_eml(working_dir='testing',metadata_md='testing.md',eml_xml='testing.xml')
+    check = delma.check_eml(working_dir='testing',eml_xml='testing.xml')
     assert check is None

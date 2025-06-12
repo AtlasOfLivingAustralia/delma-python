@@ -6,7 +6,7 @@ import metapype.eml.names as names
 from metapype.model.node import Node
 from .common_dictionaries import TITLE_LEVELS
 
-def write_eml_xml(metadata_md='metadata.md',
+def write_eml(metadata_md='metadata.md',
                   working_dir='./',
                   eml_xml='eml.xml'):
         """

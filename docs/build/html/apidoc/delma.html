@@ -29,9 +29,9 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/extra.css?v=7c6fddc9" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/extra.css?v=e8941f85" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/extra.css?v=7c6fddc9" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/extra.css?v=e8941f85" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
@@ -391,8 +391,8 @@ document.write(`
   <section id="module-delma">
 <span id="api-docs"></span><h1>API Docs<a class="headerlink" href="#module-delma" title="Link to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="delma.check_eml_xml">
-<span class="sig-prename descclassname"><span class="pre">delma.</span></span><span class="sig-name descname"><span class="pre">check_eml_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eml_xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eml.xml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delma.check_eml_xml" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="delma.check_eml">
+<span class="sig-prename descclassname"><span class="pre">delma.</span></span><span class="sig-name descname"><span class="pre">check_eml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eml_xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eml.xml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delma.check_eml" title="Link to this definition">#</a></dt>
 <dd><p>Checks whether or not your eml xml file is formatted correctly for GBIF.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -409,7 +409,7 @@ document.write(`
 
 <dl class="py function">
 <dt class="sig sig-object py" id="delma.create_md">
-<span class="sig-prename descclassname"><span class="pre">delma.</span></span><span class="sig-name descname"><span class="pre">create_md</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata_md</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metadata.md'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delma.create_md" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">delma.</span></span><span class="sig-name descname"><span class="pre">create_md</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata_md</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metadata.md'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_notices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delma.create_md" title="Link to this definition">#</a></dt>
 <dd><p>Creates a markdown file containing the metadata information needed for the DwCA.  The user can edit this
 markdown, and use it to generate the metadata files.</p>
 <dl class="field-list simple">
@@ -446,8 +446,8 @@ etc.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="delma.write_eml_xml">
-<span class="sig-prename descclassname"><span class="pre">delma.</span></span><span class="sig-name descname"><span class="pre">write_eml_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata_md</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metadata.md'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eml_xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eml.xml'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delma.write_eml_xml" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="delma.write_eml">
+<span class="sig-prename descclassname"><span class="pre">delma.</span></span><span class="sig-name descname"><span class="pre">write_eml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata_md</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metadata.md'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eml_xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eml.xml'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delma.write_eml" title="Link to this definition">#</a></dt>
 <dd><p>Writes the <code class="docutils literal notranslate"><span class="pre">eml.xml</span></code> file from the metadata markdown file into your current working directory.
 The <code class="docutils literal notranslate"><span class="pre">eml.xml</span></code> file is the metadata file containing things like authorship, licence, institution,
 etc.</p>
@@ -513,10 +513,10 @@ etc.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delma.check_eml_xml"><code class="docutils literal notranslate"><span class="pre">check_eml_xml()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delma.check_eml"><code class="docutils literal notranslate"><span class="pre">check_eml()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delma.create_md"><code class="docutils literal notranslate"><span class="pre">create_md()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delma.display_as_dataframe"><code class="docutils literal notranslate"><span class="pre">display_as_dataframe()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delma.write_eml_xml"><code class="docutils literal notranslate"><span class="pre">write_eml_xml()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delma.write_eml"><code class="docutils literal notranslate"><span class="pre">write_eml()</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -34,7 +34,11 @@ two variables:
 Editing your markdown file
 ================================
 
-Now comes the more invovled part.  We have 
+Now comes the more involved part: editing your markdown.  We have a boilerplate metadata markdown statement, 
+which is the minimum amount of metadata the ALA requires.  When editing, remember two things:
+
+1. Don't add anything to the words with hashes (`#`) in front of them.  These are headings, and will therefore be formatted in the XML file
+2. Leave a space between your added text and the next word with a hash in front of it.
 
 .. note:: Checking your markdown file
 
@@ -51,14 +55,14 @@ Writing your metadata file
 ===============================
 
 After you have successfully edited your markdown file, it is time to write your metadata xml file.  
-To do so, 
+To do so, run
 
 .. prompt:: python
 
    >>> import delma
-   >>> delma.write_xml(metadata_md="metadata.md", working_dir="./", eml_xml="eml.xml")
+   >>> delma.write_eml(metadata_md="metadata.md", working_dir="./", eml_xml="eml.xml")
 
-These are all the possible arguments for ``write_xml()``.  What is shown is the default values 
+These are all the possible arguments for ``write_eml()``.  What is shown is the default values 
 for these arguments, so if you decide to go with all the defaults, you do not have to include these 
 arguments.
 

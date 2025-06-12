@@ -34,7 +34,8 @@ setup(
         'requests',
         'shutils',
         'metapype',
-        'xmltodict'
+        'xmltodict',
+        'xmlschema'
     ],
 
     include_package_data = True,

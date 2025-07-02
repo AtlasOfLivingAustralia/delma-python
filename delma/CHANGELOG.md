@@ -1,3 +1,9 @@
+## 0.1.2 (2025-07-02)
+
+### Fix
+
+- **display_as_dataframe.py**: fixed bug which did not take the 'directory' title in template into accuont
+
 ## 0.1.1 (2025-07-02)
 
 ### Fix

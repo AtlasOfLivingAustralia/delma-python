@@ -53,7 +53,6 @@ Australia
 firstname.lastname@email.com
 
 ### User ID
-
 #### directory
 This is optional; however, if you would like to include ORCIDs, this is great
 

@@ -74,7 +74,7 @@ that will validate its formatting again a GBIF template.  To run this check, typ
 
 .. prompt:: python
 
-   >>> delma.check_eml_xml(eml_xml="eml.xml", working_dir="./")
+   >>> delma.check_metadata_xml(eml_xml="eml.xml", working_dir="./")
 
 If it is a valid ``eml.xml``, you will not get an error message.  Various error messages will 
 appear if something is not formatted correctly.

@@ -2,7 +2,7 @@ pyproject.toml
 setup.cfg
 setup.py
 src/delma/__init__.py
-src/delma/check_eml.py
+src/delma/check_metadata.py
 src/delma/common_dictionaries.py
 src/delma/create_md.py
 src/delma/display_as_dataframe.py

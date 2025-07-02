@@ -23,7 +23,7 @@ def display_as_dataframe(metadata_md='metadata.md',
     """
     # check for last line
     number_lines = int(subprocess.check_output(['cat {}/{} | wc -l'.format(working_dir,metadata_md)],shell=True,text=True).strip())
-
+    
     # initialise dictionary
     metadata_dict = {
         'level': [],
@@ -45,12 +45,13 @@ def display_as_dataframe(metadata_md='metadata.md',
         # first, check for comment
         if not comment:
             if line[0:4] == '<!--' and line.strip()[-3:] != '-->':
+                print('setting comment to true')
                 comment=True
         else:
             if line.strip()[-3:] == '-->':
                 comment=False
-                description="" # try this
-
+                description=""
+        
         if not comment and line.strip()[-3:] != '-->':        
             if line != "\n":
                 if "#" == line[0]:
@@ -58,6 +59,8 @@ def display_as_dataframe(metadata_md='metadata.md',
                     title = "".join(title_parts[1:]).upper()
                     metadata_dict['level'].append(TITLE_LEVELS[title_parts[0]])
                     metadata_dict['label'].append(title)
+                    if i == number_lines or title == 'DIRECTORY':
+                        metadata_dict['text'].append('')
                 else:
                     if i == number_lines:
                         if description == '':
@@ -81,6 +84,6 @@ def display_as_dataframe(metadata_md='metadata.md',
                 title = ""
             else:
                 pass
-    
+
     # return all the metadata information as a pandas dataframe
     return pd.DataFrame(metadata_dict)

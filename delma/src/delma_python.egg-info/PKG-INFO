@@ -1,4 +1,4 @@
-Metadata-Version: 2.2
+Metadata-Version: 2.4
 Name: delma-python
 Version: 0.1.0
 Summary: Package for creating Darwin Core Archives
@@ -16,6 +16,7 @@ Requires-Dist: requests
 Requires-Dist: shutils
 Requires-Dist: metapype
 Requires-Dist: xmltodict
+Requires-Dist: xmlschema
 Dynamic: author
 Dynamic: author-email
 Dynamic: description

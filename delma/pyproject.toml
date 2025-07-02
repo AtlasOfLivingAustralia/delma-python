@@ -16,3 +16,13 @@ license = "GNU General Public License v3.0"
 readme = "README.md"
 homepage = "http://delma.ala.org.au/Python"
 repository = "https://github.com/AtlasOfLivingAustralia/delma-python"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+update_changelog_on_bump = true
+version_files = [
+    "pyproject.toml:version",
+    "src/delma/version.py:version",
+    "setup.py:version"
+]

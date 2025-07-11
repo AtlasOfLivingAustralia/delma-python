@@ -1,3 +1,9 @@
+## 0.1.3 (2025-07-11)
+
+### Fix
+
+- **display_as_dataframe.py**: removed erroneous print statement
+
 ## 0.1.2 (2025-07-02)
 
 ### Fix

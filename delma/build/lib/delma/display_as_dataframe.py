@@ -45,7 +45,6 @@ def display_as_dataframe(metadata_md='metadata.md',
         # first, check for comment
         if not comment:
             if line[0:4] == '<!--' and line.strip()[-3:] != '-->':
-                print('setting comment to true')
                 comment=True
         else:
             if line.strip()[-3:] == '-->':

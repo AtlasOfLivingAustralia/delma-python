@@ -6,9 +6,6 @@
 0645ccdb-e001-4ab0-9729-51f1755e007e
 https://collections.ala.org.au/public/show/dr368
 
-## title
-NSW BioNet Atlas
-
 ## creator
 
 ### organizationName
@@ -25,74 +22,74 @@ Department of Planning, Industry and Environment representing the State of New S
 
 ## associatedParty
 
-#### organizationName
+### organizationName
 Atlas of Living Australia
 
-#### address
+### address
 
-##### deliveryPoint
+#### deliveryPoint
 CSIRO Ecosystems Services
 
-##### city
+#### city
 Canberra
 
-##### administrativeArea
+#### administrativeArea
 ACT
 
-##### postalCode
+#### postalCode
 2601
 
-##### country
+#### country
 Australia
 
-#### electronicMailAddress
+### electronicMailAddress
 info@ala.org.au
 
-#### role
+### role
 distributor
 
-#### organizationName
+### organizationName
 Office of Environment & Heritage
 
-#### address
+### address
 
-#### role
+### role
 originator
 
 ## associatedParty
 
-#### organizationName
+### organizationName
 Atlas of Living Australia
 
-#### address
+### address
 
-##### deliveryPoint
+#### deliveryPoint
 CSIRO Ecosystems Services
 
-##### city
+#### city
 Canberra
 
-##### administrativeArea
+#### administrativeArea
 ACT
 
-##### postalCode
+#### postalCode
 2601
 
-##### country
+#### country
 Australia
 
-#### electronicMailAddress
+### electronicMailAddress
 info@ala.org.au
 
-#### role
+### role
 distributor
 
-#### organizationName
+### organizationName
 Office of Environment & Heritage
 
-#### address
+### address
 
-#### role
+### role
 originator
 
 ## pubDate
@@ -112,32 +109,17 @@ Records from DPIE's NSW BioNet Atlas database of flora and fauna sightings. Incl
 
 #### ulink
 
-###### @url
-https://creativecommons.org/licenses/by/4.0/
-
-###### citetitle
+##### citetitle
 Creative Commons Attribution (International) (CC-BY 4.0 (Int) 4.0)
 
-###### @url
-https://creativecommons.org/licenses/by/4.0/
-
-###### citetitle
+##### citetitle
 Creative Commons Attribution (International) (CC-BY 4.0 (Int) 4.x)
-
-#### #text
-BioNet Species Sightings occurrence data held by the NSW Office of Environment and Heritage (OEH).   The BioNet repository holds data from a number of sources and custodians. (Accessed through ALA Data Portal,<Date of Access>).
 
 ## distribution
 
 ### online
 
 #### url
-
-##### @function
-information
-
-##### #text
-https://collections.ala.org.au/public/show/dr368
 
 ## coverage
 

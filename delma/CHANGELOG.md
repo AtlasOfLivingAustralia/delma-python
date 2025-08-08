@@ -1,3 +1,9 @@
+## 0.1.4 (2025-08-08)
+
+### Fix
+
+- **write_eml.py**: fix error that occurred when a title has an @ symbol in it;changed working_dir in check_metadata to specify the eml directory
+
 ## 0.1.3 (2025-07-11)
 
 ### Fix

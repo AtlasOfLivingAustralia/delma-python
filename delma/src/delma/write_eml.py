@@ -7,8 +7,9 @@ from metapype.model.node import Node
 from .common_dictionaries import TITLE_LEVELS
 
 def write_eml(metadata_md='metadata.md',
-                  working_dir='./',
-                  eml_xml='eml.xml'):
+              working_dir='./',
+              publishing_dir='./',
+              eml_xml='eml.xml'):
         """
         Writes the ``eml.xml`` file from the metadata markdown file into your current working directory.  
         The ``eml.xml`` file is the metadata file containing things like authorship, licence, institution, 
@@ -27,7 +28,6 @@ def write_eml(metadata_md='metadata.md',
         -------
             ``None``
         """
-
         # initialise the eml.xml file
         metadata = Node(names.EML)
         metadata.add_attribute('packageId', 'edi.23.1') # doi:10.xxxx/eml.1.1
@@ -123,30 +123,38 @@ def write_eml(metadata_md='metadata.md',
         
         # loop over all levels
         for t in title_list:
-
+            
             # check for duplicates
             if t[-1].isdigit():
                 t = t[:-1]
             elif t[-2:].isdigit():
                 t = t[:-2]
+            elif t[0] == '@':
+                t = t[1:]
 
             # get attribute
-            if t in ['ULINK','CITETITLE','GBIF','DATESTAMP','HIERARCHYLEVEL','RIGHTS']:
+            if t in ['ULINK','CITETITLE','GBIF','DATESTAMP','HIERARCHYLEVEL','RIGHTS','DIRECTORY']:
                 attr = t.lower()
             else:
                 attr = getattr(names,t)
 
             # set nodes
-            current_node = Node(attr,parent=level_dict[titles[t] - 1])               
-            if type(elements[t]) is list:
+            # if t != 'DIRECTORY':
+            current_node = Node(attr,parent=level_dict[titles[t] - 1]) 
+
+            # set node information 
+            if t == 'USERID':   
+                current_node.add_attribute('directory',"https://orcid.org")   
+                if type(elements["DIRECTORY"]) in [str,list]:
+                    current_node.content = strip_newline(elements["DIRECTORY"])
+                else:
+                    current_node.content = ""
+            elif t == 'DIRECTORY':
+                pass
+            elif type(elements[t]) is list:
                 if elements[t][-1] == "\n":
                     elements[t] = elements[t][:-1]
-                if t == 'USERID':
-                    current_node.add_attribute('directory',"https://orcid.org")
-                    if elements[t] is not None:
-                        current_node.content = " ".join(elements[t])
-                    else:
-                        current_node.content = ""
+                    current_node.content = strip_newline(element=elements[t])
                 else:
                     if "\n" in elements[t] and t in ["ABSTRACT","INTRODUCTION"]:
                         indices = [n for n,x in enumerate(elements[t]) if x == "\n"]
@@ -155,23 +163,35 @@ def write_eml(metadata_md='metadata.md',
                             first_para = elements[t][start:index]
                             para_attr = getattr(names,"PARA")
                             para_node = Node(para_attr,parent=current_node)
-                            para_node.content = " ".join(first_para)
+                            para_node.content = strip_newline(element=first_para)
                             start = index + 1
                             current_node.add_child(para_node)
                     else:
-                        current_node.content = " ".join(elements[t])
+                        current_node.content = strip_newline(element=elements[t])
             elif type(elements[t]) is str and t not in ["DATASET","CREATOR","INDIVIDUALNAME","ADDRESS","USERID","CONTACT","LICENSED","KEYWORDSET"]:
-                current_node.content = elements[t]
-            elif type(elements[t]) is str and t == "USERID":
-                current_node.add_attribute('directory',"https://orcid.org")
-                if elements[t] is not None:
-                    current_node.content = " ".join(elements[t])
-                else:
-                    current_node.content = ""
-            level_dict[titles[t]] = current_node
-            level_dict[titles[t] - 1].add_child(current_node)
+                current_node.content = strip_newline(element=elements[t])
+            else:
+                pass
+
+            if t != 'DIRECTORY':
+                level_dict[titles[t]] = current_node
+                level_dict[titles[t] - 1].add_child(current_node)
 
         # write xml
         xml_str = metapype.eml.export.to_xml(metadata)
-        with open("{}/{}".format(working_dir,eml_xml), 'w') as f:
+        with open("{}/{}".format(publishing_dir,eml_xml), 'w') as f:
             f.write(xml_str)
+
+def strip_newline(element=None):
+
+    if type(element) in [str,list]:
+        if type(element) is str:
+            if element[-2:] == "\n":
+                return element[:-2]
+            else:
+                return element
+        if element[-1] == "\n":
+            element = element[:-1]
+            return " ".join(element)
+        else:
+            return " ".join(element)

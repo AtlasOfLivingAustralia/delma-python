@@ -1,3 +1,4 @@
+import os
 import subprocess
 import datetime
 import metapype
@@ -8,7 +9,7 @@ from .common_dictionaries import TITLE_LEVELS
 
 def write_eml(metadata_md='metadata.md',
               working_dir='./',
-              publishing_dir='./',
+              publishing_dir='./data-publish/',
               eml_xml='eml.xml'):
         """
         Writes the ``eml.xml`` file from the metadata markdown file into your current working directory.  
@@ -28,6 +29,10 @@ def write_eml(metadata_md='metadata.md',
         -------
             ``None``
         """
+        # first, check if there's a publishing dir
+        if not os.path.exists(publishing_dir):
+            os.mkdir(publishing_dir)
+
         # initialise the eml.xml file
         metadata = Node(names.EML)
         metadata.add_attribute('packageId', 'edi.23.1') # doi:10.xxxx/eml.1.1
@@ -123,6 +128,13 @@ def write_eml(metadata_md='metadata.md',
         
         # loop over all levels
         for t in title_list:
+            # if t in ['METADATAPROVIDER','ORGANIZATIONNAME']:
+            #     print()
+            #     print(t)
+            #     print('level')
+            #     print(level_dict[titles[t]])
+            #     print('parent')
+            #     print(level_dict[titles[t] - 1])
             
             # check for duplicates
             if t[-1].isdigit():

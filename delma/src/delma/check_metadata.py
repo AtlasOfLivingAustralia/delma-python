@@ -1,7 +1,7 @@
 import xmlschema
 
 def check_metadata(eml_xml='eml.xml',
-                   eml_dir='./'):
+                   eml_dir='./data-publish/'):
     """
     Checks whether or not your eml xml file is formatted correctly for GBIF.
 

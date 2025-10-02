@@ -27,7 +27,10 @@ def create_md(metadata_md='metadata.md',
         -------
             ``None``
         """
-        
+        # first, check that there is a working directory
+        if not os.path.exists(working_dir):
+            os.mkdir(working_dir)
+
         # first, check if the user wants the default markdown file
         if os.path.exists('{}/{}'.format(working_dir,metadata_md)):
             if print_notices:

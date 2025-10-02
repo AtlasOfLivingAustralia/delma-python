@@ -1,3 +1,9 @@
+## 0.1.5 (2025-10-02)
+
+### Fix
+
+- **added-a-couple-of-changes-so-it-works-with-galaxias**: added a couple of changes so it works with galaxias
+
 ## 0.1.4 (2025-08-08)
 
 ### Fix
